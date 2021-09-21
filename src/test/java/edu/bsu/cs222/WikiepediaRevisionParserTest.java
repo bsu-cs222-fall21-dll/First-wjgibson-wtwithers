@@ -3,12 +3,13 @@ package edu.bsu.cs222;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 public class WikiepediaRevisionParserTest {
 
     @Test
-    public void testParse(){
+    public void testParse() throws IOException {
         WikipediaRevisionParser parser = new WikipediaRevisionParser();
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("testResource.json");
         String timeStamp = parser.parse(testDataStream);
