@@ -1,0 +1,28 @@
+{
+  "continue": {
+    "rvcontinue": "20210919005429|1045132628",
+    "continue": "||"
+  },
+  "query": {
+    "redirects": [
+      {
+        "from": "Zappa",
+        "to": "Frank Zappa"
+      }
+    ],
+    "pages": {
+      "10672": {
+        "pageid": 10672,
+        "ns": 0,
+        "title": "Frank Zappa",
+        "revisions": [
+          {
+            "user": "75.172.213.218",
+            "anon": "",
+            "timestamp": "2021-09-19T01:09:23Z"
+          }
+        ]
+      }
+    }
+  }
+}
