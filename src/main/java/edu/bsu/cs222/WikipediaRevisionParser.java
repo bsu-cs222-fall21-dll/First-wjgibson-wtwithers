@@ -10,8 +10,12 @@ import java.util.ArrayList;
 public class WikipediaRevisionParser {
 
     public String parse(InputStream testDataStream) throws IOException {
-        JSONArray result = (JSONArray) JsonPath.read(testDataStream,"$..revisions[0]");
-        return result.get(0).toString();
+        JSONArray revision = (JSONArray) JsonPath.read(testDataStream,"$..revisions[0]");
+
+        JSONArray user = (JSONArray) JsonPath.read(revision,"$..user");
+        JSONArray timestamp = (JSONArray) JsonPath.read(revision,"$..timestamp");
+
+        return revision.get(0).toString();
     }
 
 }

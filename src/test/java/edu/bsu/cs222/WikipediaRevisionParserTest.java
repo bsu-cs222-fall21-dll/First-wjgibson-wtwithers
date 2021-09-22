@@ -8,7 +8,6 @@ import java.io.InputStream;
 
 public class WikipediaRevisionParserTest {
 
-
     @Test
     public void testParseForRevision() throws IOException {
         WikipediaRevisionParser parser = new WikipediaRevisionParser();
