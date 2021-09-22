@@ -1,12 +1,18 @@
 {
   "continue": {
-    "rvcontinue": "20210919005429|1045132628",
+    "rvcontinue": "20210918122211|1045035977",
     "continue": "||"
   },
   "query": {
+    "normalized": [
+      {
+        "from": "frank zappa",
+        "to": "Frank zappa"
+      }
+    ],
     "redirects": [
       {
-        "from": "Zappa",
+        "from": "Frank zappa",
         "to": "Frank Zappa"
       }
     ],
@@ -20,6 +26,19 @@
             "user": "75.172.213.218",
             "anon": "",
             "timestamp": "2021-09-19T01:09:23Z"
+          },
+          {
+            "user": "75.172.213.218",
+            "anon": "",
+            "timestamp": "2021-09-19T00:54:29Z"
+          },
+          {
+            "user": "MusikBot II",
+            "timestamp": "2021-09-18T23:53:23Z"
+          },
+          {
+            "user": "Anon423",
+            "timestamp": "2021-09-18T12:33:00Z"
           }
         ]
       }

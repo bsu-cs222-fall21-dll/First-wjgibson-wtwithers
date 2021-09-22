@@ -8,9 +8,16 @@ import java.io.InputStream;
 
 public class WikipediaRevisionParser {
 
-    public String parse(InputStream testDataStream) throws IOException {
-        JSONArray result = (JSONArray) JsonPath.read(testDataStream,"$..user");
-        return result.get(0).toString();
+    public Revision parse(InputStream testDataStream) throws IOException {
+        JSONArray user = (JSONArray) JsonPath.read(testDataStream,"$..user");
+        String field1 = user.get(0).toString();
+
+        JSONArray timestamp = (JSONArray) JsonPath.read(testDataStream,"$..timestamp");
+        String field2 = timestamp.get(0).toString();
+
+        Revision revision = new Revision(field1,field2);
+        return revision;
+
 
     }
 }
