@@ -9,15 +9,22 @@ import java.util.ArrayList;
 
 public class WikipediaRevisionParser {
 
-    public Revision parse(InputStream testDataStream) throws IOException {
-        JSONArray result = JsonPath.read(testDataStream,"$..revisions[0]");
+    public ArrayList<Revision> parse(InputStream dataStream) throws IOException {
 
-        JSONArray user = JsonPath.read(result,"$..user");
-        JSONArray timestamp = JsonPath.read(result,"$..timestamp");
+        JSONArray result = JsonPath.read(dataStream,"$..revisions");
 
-        Revision revision = new Revision(user.get(0).toString(), timestamp.get(0).toString());
+        int numberOfRevisions = JsonPath.read(dataStream,"$..revisions.length()");
 
-        return revision;
+        ArrayList<Revision> listOfRevisions = new ArrayList<>();
+
+        for(int i =0 ;i<=numberOfRevisions-1;i++){
+            JSONArray user = JsonPath.read(result,"$..user");
+            JSONArray timestamp = JsonPath.read(result,"$..timestamp");
+            Revision revision = new Revision(user.get(i).toString(), timestamp.get(i).toString());
+
+            listOfRevisions.add(revision);
+        }
+
+        return listOfRevisions;
     }
-
 }
