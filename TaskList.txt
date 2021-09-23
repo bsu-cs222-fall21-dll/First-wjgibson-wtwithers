@@ -1,0 +1,5 @@
+﻿TASK-LIST
+1. Refactor WikipediaRevisionParser to return a Revision object containing both the user and the timestamp of a specific revision.
+2. Modify the parse method to return a list of revisions via a loop to retrieve each revision object.
+3. Create a revisionFormatter that iterates over the RevisionList, and returns a formatted string for each one.
+4. Create a HTTPRequestBuilder class with a method that builds an HTTP request that can be passed to the URLconnector. (Import the UrlEncoder class).
