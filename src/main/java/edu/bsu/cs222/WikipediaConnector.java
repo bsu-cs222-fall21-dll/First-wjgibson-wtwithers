@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class wikipediaConnector {
+public class WikipediaConnector {
 
     private static URLConnection connectToWikipedia(String Url) throws IOException {
         URL url = new URL(Url);
