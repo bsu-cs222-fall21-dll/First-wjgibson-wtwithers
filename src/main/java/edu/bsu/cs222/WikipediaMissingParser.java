@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class WikipediaMissingParser {
-    public boolean parse(InputStream dataStream) throws IOException {
+    public boolean parseForMissing(InputStream dataStream) throws IOException {
         try {
-            JSONArray result = JsonPath.read(dataStream,"$..pages");
+            JSONArray result = JsonPath.read(dataStream,"$..pages[0]");
 
             JSONArray redirection = JsonPath.read(result,"$..missing");
 

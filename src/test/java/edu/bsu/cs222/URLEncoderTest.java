@@ -16,5 +16,3 @@ public class URLEncoderTest {
         Assertions.assertEquals("Frank+Zappa",encodedString);
     }
 }
-
-//https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=//frank%20zappa//&redirects=1&callback=&rvprop=timestamp%7Cuser&rvlimit=30

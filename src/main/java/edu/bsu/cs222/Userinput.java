@@ -6,7 +6,7 @@ public class Userinput {
 
     public String getUserInput(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the name of a wikipedia article to search for: ");
+        System.out.println("Please enter the name of a wikipedia article to search for:");
         String providedArticleName = scanner.nextLine();
 
         if(providedArticleName.equals("")){

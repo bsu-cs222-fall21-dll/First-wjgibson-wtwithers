@@ -8,7 +8,7 @@ import java.io.InputStream;
 
 public class WikipediaRedirectParser {
 
-    public String parse(InputStream dataStream) throws IOException {
+    public String parseForRedirect(InputStream dataStream) throws IOException {
         try {
             JSONArray result = JsonPath.read(dataStream,"$..redirects");
 

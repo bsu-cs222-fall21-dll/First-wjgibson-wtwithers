@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class WikipediaRevisionParser {
 
-    public ArrayList<Revision> parse(InputStream dataStream) throws IOException {
+    public ArrayList<Revision> parseForRevisions(InputStream dataStream) throws IOException {
 
         JSONArray result = JsonPath.read(dataStream,"$..revisions[0:]");
 

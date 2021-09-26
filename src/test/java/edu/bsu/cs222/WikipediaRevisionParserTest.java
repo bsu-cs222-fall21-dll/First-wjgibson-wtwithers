@@ -1,7 +1,6 @@
 package edu.bsu.cs222;
 
 import com.jayway.jsonpath.JsonPath;
-import net.minidev.json.JSONArray;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +14,7 @@ public class WikipediaRevisionParserTest {
     public void testParseForRevisionUser() throws IOException {
         WikipediaRevisionParser parser = new WikipediaRevisionParser();
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
-        ArrayList<Revision> revisionList = parser.parse(testDataStream);
+        ArrayList<Revision> revisionList = parser.parseForRevisions(testDataStream);
         Revision revision = revisionList.get(0);
         Assertions.assertEquals("75.172.213.218",revision.getUser());
     }
@@ -24,7 +23,7 @@ public class WikipediaRevisionParserTest {
     public void testParseForRevisionTimeStamp() throws IOException {
         WikipediaRevisionParser parser = new WikipediaRevisionParser();
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
-        ArrayList<Revision> revisionList = parser.parse(testDataStream);
+        ArrayList<Revision> revisionList = parser.parseForRevisions(testDataStream);
         Revision revision = revisionList.get(0);
         Assertions.assertEquals("2021-09-19T01:09:23Z",revision.getTimestamp());
     }
@@ -34,16 +33,6 @@ public class WikipediaRevisionParserTest {
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
         int amountOfRevisions = JsonPath.read(testDataStream,"$..revisions.length()");
         Assertions.assertEquals(4,amountOfRevisions);
-    }
-
-
-    @Test
-    public void testParseForError() throws IOException {
-        WikipediaRevisionParser parser = new WikipediaRevisionParser();
-        InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
-        ArrayList<Revision> result = parser.parse(testDataStream);
-        Revision revision = JsonPath.read(result,"$..revisions");
-        Assertions.assertEquals(true,true);
     }
 
 }

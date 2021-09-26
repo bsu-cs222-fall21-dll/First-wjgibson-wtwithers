@@ -12,7 +12,7 @@ public class WikipediaRedirectParserTest {
     public void checkIfRevisionContainsRedirect() throws IOException {
         WikipediaRedirectParser parser = new WikipediaRedirectParser();
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
-        String redirect = parser.parse(testDataStream);
+        String redirect = parser.parseForRedirect(testDataStream);
         Assertions.assertEquals("Redirected to Frank Zappa",redirect);
     }
 
@@ -20,7 +20,7 @@ public class WikipediaRedirectParserTest {
     public void checkIfRevisionContainsNoRedirect() throws IOException {
         WikipediaRedirectParser parser = new WikipediaRedirectParser();
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("testWithoutRedirect.json");
-        String redirect = parser.parse(testDataStream);
+        String redirect = parser.parseForRedirect(testDataStream);
         Assertions.assertEquals(null,redirect);
     }
 }
