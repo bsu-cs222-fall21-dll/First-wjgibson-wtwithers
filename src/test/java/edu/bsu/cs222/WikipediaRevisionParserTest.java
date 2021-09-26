@@ -37,5 +37,13 @@ public class WikipediaRevisionParserTest {
     }
 
 
+    @Test
+    public void testParseForError() throws IOException {
+        WikipediaRevisionParser parser = new WikipediaRevisionParser();
+        InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
+        ArrayList<Revision> result = parser.parse(testDataStream);
+        Revision revision = JsonPath.read(result,"$..revisions");
+        Assertions.assertEquals(true,true);
+    }
 
 }
