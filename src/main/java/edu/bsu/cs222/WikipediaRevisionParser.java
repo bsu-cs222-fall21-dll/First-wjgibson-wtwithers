@@ -11,19 +11,17 @@ public class WikipediaRevisionParser {
 
     public ArrayList<Revision> parse(InputStream dataStream) throws IOException {
 
-        JSONArray result = JsonPath.read(dataStream,"$..revisions");
-
-        int numberOfRevisions = JsonPath.read(dataStream,"$..revisions.length()");
+        JSONArray result = JsonPath.read(dataStream,"$..revisions[0:]");
 
         ArrayList<Revision> listOfRevisions = new ArrayList<>();
 
-        for(int i =0 ;i<=numberOfRevisions-1;i++){
+        for(int i =0 ;i<=result.size()-1;i++){
             JSONArray user = JsonPath.read(result,"$..user");
             JSONArray timestamp = JsonPath.read(result,"$..timestamp");
-            Revision revision = new Revision(user.get(i).toString(), timestamp.get(i).toString());
-
+            Revision revision = new Revision(user.get(i).toString(),timestamp.get(i).toString());
             listOfRevisions.add(revision);
         }
+
 
         return listOfRevisions;
     }
