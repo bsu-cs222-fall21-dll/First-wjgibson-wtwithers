@@ -1,5 +1,7 @@
 package edu.bsu.cs222;
 
+import com.jayway.jsonpath.JsonPath;
+import net.minidev.json.JSONArray;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +15,8 @@ public class RevisionFormatterTest {
     public void FormatRevision() throws IOException {
         WikipediaRevisionParser parser = new WikipediaRevisionParser();
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
-        ArrayList<Revision> revisionList = parser.parseForRevisions(testDataStream);
+        JSONArray data = JsonPath.read(testDataStream,"$..*");
+        ArrayList<Revision> revisionList = parser.parseForRevisions(data);
         RevisionFormatter formatter = new RevisionFormatter();
         String formattedRevisions = formatter.format(revisionList);
         Assertions.assertEquals("2021-09-19 01:09:23 75.172.213.218\n" +

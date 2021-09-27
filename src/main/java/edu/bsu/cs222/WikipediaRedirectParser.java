@@ -3,13 +3,16 @@ package edu.bsu.cs222;
 import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
 
+
 import java.io.IOException;
 import java.io.InputStream;
 
 public class WikipediaRedirectParser {
 
-    public String parseForRedirect(InputStream dataStream) throws IOException {
+    public String parseForRedirect(JSONArray dataStream) throws IOException {
+
         try {
+
             JSONArray result = JsonPath.read(dataStream,"$..redirects");
 
             JSONArray redirection = JsonPath.read(result,"$..to");
@@ -18,6 +21,7 @@ public class WikipediaRedirectParser {
             return redirectionMessage;
         }
         catch (IndexOutOfBoundsException indexOutOfBoundsException){
+
             return null;
         }
     }

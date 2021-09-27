@@ -1,7 +1,12 @@
 package edu.bsu.cs222;
 
+
+import net.minidev.json.JSONArray;
+
+
 import java.io.IOException;
-import java.io.InputStream;
+
+
 import java.util.ArrayList;
 
 public class Main {
@@ -17,13 +22,16 @@ public class Main {
 
         String articleName = userinput.getUserInput();
         String URL = urlBuilder.BuildUrl(articleName);
-        InputStream inputStream = wikipediaConnector.connectToWikipedia(URL);
-        /*if(missingParser.parseForMissing(inputStream)==true){
+        JSONArray data = wikipediaConnector.connectToWikipedia(URL);
+
+        if(missingParser.parseForMissing(data)==true){
             System.err.println("No Article Found");
             System.exit(2);
-        }*/
-        System.out.println(redirectParser.parseForRedirect(inputStream));
-        ArrayList<Revision> allRevisions = revisionParser.parseForRevisions(inputStream);
+        }
+
+        System.out.println(redirectParser.parseForRedirect(data));
+
+        ArrayList<Revision> allRevisions = revisionParser.parseForRevisions(data);
         System.out.println(formatter.format(allRevisions));
         System.exit(0);
 
