@@ -2,7 +2,7 @@ package edu.bsu.cs222;
 
 import java.util.Scanner;
 
-public class Userinput {
+public class UserInput {
 
     public String getUserInput(){
         Scanner scanner = new Scanner(System.in);

@@ -1,18 +1,15 @@
 package edu.bsu.cs222;
 
-
 import net.minidev.json.JSONArray;
 
-
 import java.io.IOException;
-
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        Userinput userinput = new Userinput();
+        UserInput userinput = new UserInput();
         URLBuilder urlBuilder = new URLBuilder();
         WikipediaConnector wikipediaConnector = new WikipediaConnector();
         WikipediaMissingParser missingParser = new WikipediaMissingParser();
@@ -22,20 +19,17 @@ public class Main {
 
         String articleName = userinput.getUserInput();
         String URL = urlBuilder.BuildUrl(articleName);
-        JSONArray data = wikipediaConnector.connectToWikipedia(URL);
+        JSONArray articleJsonArray = wikipediaConnector.connectToWikipedia(URL);
 
-        if(missingParser.parseForMissing(data)==true){
+        if(missingParser.parseForMissing(articleJsonArray)){
             System.err.println("No Article Found");
             System.exit(2);
         }
 
-        System.out.println(redirectParser.parseForRedirect(data));
+        System.out.println(redirectParser.parseForRedirect(articleJsonArray));
 
-        ArrayList<Revision> allRevisions = revisionParser.parseForRevisions(data);
+        ArrayList<Revision> allRevisions = revisionParser.parseForRevisions(articleJsonArray);
         System.out.println(formatter.format(allRevisions));
         System.exit(0);
-
-
-
     }
 }

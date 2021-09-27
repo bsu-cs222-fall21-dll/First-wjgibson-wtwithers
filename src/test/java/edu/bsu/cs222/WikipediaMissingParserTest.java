@@ -17,7 +17,7 @@ public class WikipediaMissingParserTest {
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("testWithMissingTag.json");
         JSONArray data = JsonPath.read(testDataStream,"$..*");
         boolean missingPresent = parser.parseForMissing(data);
-        Assertions.assertEquals(true,missingPresent);
+        Assertions.assertTrue(missingPresent);
     }
     @Test
     public void checkForNoMissingTag() throws IOException {
@@ -25,6 +25,6 @@ public class WikipediaMissingParserTest {
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
         JSONArray data = JsonPath.read(testDataStream,"$..*");
         boolean missingPresent = parser.parseForMissing(data);
-        Assertions.assertEquals(false,missingPresent);
+        Assertions.assertFalse(missingPresent);
     }
 }
