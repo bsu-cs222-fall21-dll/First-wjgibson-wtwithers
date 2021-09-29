@@ -10,14 +10,10 @@ import java.io.IOException;
 
 public class GUIMain extends Application {
 
-    public static void main(String[] args) {
-        launch();
-    }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("GUIBuilder.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/GUIBuilder.fxml"));
             primaryStage.setTitle("WikipediaRevisionFetcher");
             primaryStage.setScene(new Scene(root, 300, 275));
             primaryStage.show();
@@ -25,4 +21,9 @@ public class GUIMain extends Application {
             e.printStackTrace();
         }
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
 }

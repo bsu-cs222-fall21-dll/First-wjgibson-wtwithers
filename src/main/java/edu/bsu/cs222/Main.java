@@ -1,10 +1,6 @@
 package edu.bsu.cs222;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+
 import net.minidev.json.JSONArray;
 
 import java.io.IOException;
@@ -12,7 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
-
 
     public static void main(String[] args) throws IOException {
 
