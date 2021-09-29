@@ -23,6 +23,5 @@ public class RevisionFormatterTest {
                 "2021-09-19 00:54:29 75.172.213.218\n" +
                 "2021-09-18 23:53:23 MusikBot II\n" +
                 "2021-09-18 12:33:00 Anon423\n",formattedRevisions);
-
     }
 }
