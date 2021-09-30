@@ -1,9 +1,6 @@
 package edu.bsu.cs222;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+
 import net.minidev.json.JSONArray;
 
 import java.io.IOException;
@@ -11,18 +8,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
-    
-    public void start(Stage primaryStage) throws Exception {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("GUIBuilder.fxml"));
-            primaryStage.setTitle("WikipediaRevisionFetcher");
-            primaryStage.setScene(new Scene(root, 300, 275));
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     public static void main(String[] args) throws IOException {
 
