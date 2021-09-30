@@ -15,7 +15,7 @@ public class GUIMain extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/GUIBuilder.fxml"));
             primaryStage.setTitle("WikipediaRevisionFetcher");
-            primaryStage.setScene(new Scene(root, 300, 275));
+            primaryStage.setScene(new Scene(root, 500, 475));
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
