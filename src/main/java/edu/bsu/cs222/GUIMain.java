@@ -3,6 +3,7 @@ package edu.bsu.cs222;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import net.minidev.json.JSONArray;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -25,10 +27,16 @@ public class GUIMain extends Application {
         launch(args);
     }
 
+    @FXML
+    public TextField textField;
+
+    @FXML
+    public TextArea textArea;
+
     //Thank you to Zak Young and Connor Pflederer
     // for the concept of using the FXML file as the resource
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException{
 
         Parent root = null;
         try {
