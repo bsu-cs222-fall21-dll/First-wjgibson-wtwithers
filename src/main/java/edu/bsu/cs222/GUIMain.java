@@ -35,10 +35,11 @@ public class GUIMain extends Application {
 
     //Thank you to Zak Young and Connor Pflederer
     // for the concept of using the FXML file as the resource
+    //and understanding XML as a language.
     @Override
-    public void start(Stage primaryStage) throws IOException{
+    public void start(Stage primaryStage){
 
-        Parent root = null;
+        Parent root;
         try {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("GuiFormat.fxml")));
         } catch (IOException ioException) {
@@ -49,7 +50,10 @@ public class GUIMain extends Application {
         primaryStage.show();
     }
 
-    /*private void getAllRevisionsWithInputField() throws IOException {
+
+
+    @FXML
+    private void getAllRevisionsWithInputField() throws IOException {
         URLBuilder urlBuilder = new URLBuilder();
         WikipediaConnector wikipediaConnector = new WikipediaConnector();
         WikipediaMissingParser missingParser = new WikipediaMissingParser();
@@ -57,21 +61,19 @@ public class GUIMain extends Application {
         WikipediaRevisionParser revisionParser = new WikipediaRevisionParser();
         RevisionFormatter formatter = new RevisionFormatter();
 
-        String articleName = inputField.getText();
+        String articleName = textField.getText();
         String URL = urlBuilder.BuildUrl(articleName);
         JSONArray articleJsonArray = wikipediaConnector.connectToWikipedia(URL);
 
-        if(missingParser.parseForMissing(articleJsonArray)) {
-            outputArea.appendText("No Article Found");
+        /*if(missingParser.parseForMissing(articleJsonArray)) {
+            textArea.appendText("No Article Found");
             System.exit(2);
-        }
+        }*/
 
-        outputArea.appendText(redirectParser.parseForRedirect(articleJsonArray));
+        textArea.appendText(redirectParser.parseForRedirect(articleJsonArray)+"\n");
 
         ArrayList<Revision> allRevisions = revisionParser.parseForRevisions(articleJsonArray);
         String formattedRevisions = formatter.format(allRevisions);
-        outputArea.appendText(formattedRevisions);
-
-        System.exit(0);
-    }*/
+        textArea.appendText(formattedRevisions);
+    }
 }
