@@ -1,22 +1,15 @@
 package edu.bsu.cs222;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import net.minidev.json.JSONArray;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -65,10 +58,9 @@ public class GUIMain extends Application {
         String URL = urlBuilder.BuildUrl(articleName);
         JSONArray articleJsonArray = wikipediaConnector.connectToWikipedia(URL);
 
-        /*if(missingParser.parseForMissing(articleJsonArray)) {
+        if(missingParser.parseForMissing(articleJsonArray)) {
             textArea.appendText("No Article Found");
-            System.exit(2);
-        }*/
+        }
 
         textArea.appendText(redirectParser.parseForRedirect(articleJsonArray)+"\n");
 
