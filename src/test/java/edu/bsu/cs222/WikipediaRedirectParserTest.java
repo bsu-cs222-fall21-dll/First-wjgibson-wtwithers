@@ -26,6 +26,6 @@ public class WikipediaRedirectParserTest {
         BufferedInputStream testDataStream = (BufferedInputStream) Thread.currentThread().getContextClassLoader().getResourceAsStream("testWithoutRedirect.json");
         JSONArray data = JsonPath.read(testDataStream,"$..*");
         String redirect = parser.parseForRedirect(data);
-        Assertions.assertNull(redirect);
+        Assertions.assertEquals("",redirect);
     }
 }
